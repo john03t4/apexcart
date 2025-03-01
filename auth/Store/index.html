@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Products</title>
+    <link rel="stylesheet" href="../css/auth3.css">  <!-- Add your CSS here -->
+    <link rel="stylesheet" href="../css/auth4.css">  <!-- Add your CSS here -->
+    <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Store Header with Close Button and Arrow -->
+    <div class="store-header">
+        <span id="close-btn" class="close-btn1" onclick="closeStorePage()">✖</span>  <!-- Close button -->
+    </div>
+
+    <div class="store-container">
+        <!-- Search bar to filter products -->
+        <input type="text" id="searchBar" placeholder="Search products..." class="search-bar">
+
+        <!-- Product grid where the products will be displayed -->
+        <div id="mainStoreProductGrid" class="product-grid"></div>
+    </div>
+
+    <!-- Product Info Modal -->
+    <div id="productInfoModal" class="modal">
+        <div class="modal-content">
+            <!-- Close Button -->
+            <span class="close-btn" onclick="closeProductInfoModal()">✖</span>
+
+            <img id="productImage" src="" alt="Product Image">
+            <h3 id="productName"></h3>
+            <p id="productPrice"></p>
+            <p id="productDescription"></p>
+        </div>
+    </div>
+
+    <!-- Logout Button -->
+    <button onclick="logout()">Logout</button>
+
+    <!-- Trial Status Message -->
+    <div id="trial-status" class="trial-status">
+        <p>Your trial is active! Upgrade now to unlock all features.</p>
+        <button id="close-trial-status" class="close-btn">✖</button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="../js/auth8.js"></script>  <!-- Link to the JS script -->
+</body>
+</html>

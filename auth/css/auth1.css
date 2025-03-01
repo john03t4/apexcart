@@ -1,0 +1,854 @@
+/* Ensure the body and HTML take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+.container {
+    width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label, input, textarea {
+    margin: 10px 0;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+}
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.product h3 {
+    margin: 0 0 5px;
+}
+
+.product p {
+    margin: 0 0 5px;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #34495e;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 15px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f6f8;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.top-bar h1 {
+    margin: 0;
+}
+
+.top-bar-actions button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.top-bar-actions button:hover {
+    background-color: #16a085;
+}
+
+/* Dashboard Cards */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+.card .button {
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.card .button:hover {
+    background-color: #2980b9;
+}
+/* Orders Section */
+.orders-section {
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.orders-table th, .orders-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.orders-table th {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.orders-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.orders-table td a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.orders-table td a:hover {
+    text-decoration: underline;
+}
+/* Sidebar links hover effect */
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 15px 20px;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #1abc9c; /* Green underline color */
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+nav ul li a:hover::before {
+    visibility: visible;
+    width: 100%; /* Full width */
+    height: 4px; /* Thicker border */
+}
+
+
+/* Products Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.product-card p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.product-card .product-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.product-card .product-actions button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.product-card .product-actions button:hover {
+    background-color: #2980b9;
+}
+/* Add Product Form */
+.add-product-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-form h2 {
+    margin-bottom: 20px;
+}
+
+.add-product-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-product-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-product-form button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-product-form button:hover {
+    background-color: #2980b9;
+}
+
+.dashboard-container {
+    display: flex;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed; /* Keep the sidebar fixed */
+    top: 0; /* Align it to the top of the page */
+    left: 0; /* Align it to the left side of the page */
+    width: 200px; /* Fixed width */
+    padding: 15px; /* Padding inside the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: add a slight shadow for a neat effect */
+    z-index: 1000; /* Ensure it's above other content */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+}
+
+/* Main content */
+.main-content {
+    margin-left: 220px; /* Ensure content doesn't overlap the sidebar */
+    padding: 20px;
+    overflow: auto; /* Enable scrolling for the main content */
+    height: 100vh; /* Full viewport height */
+}
+
+
+
+.sidebar-header h2 {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-product-form {
+    margin: 20px 0;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of products */
+    gap: 20px; /* Space between products */
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(25% - 20px); /* Set width to 25% of the container minus gap */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Pointer cursor for product cards */
+    text-align: center; /* Center align text */
+    overflow: hidden; /* Ensure no overflow */
+    display: flex; /* Use flex to control alignment */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: space-between; /* Space between items */
+    height: 300px; /* Set a fixed height for uniformity */
+}
+
+.product-card img {
+    max-width: 100%;  /* Ensures responsiveness */
+    width: auto;      /* Maintains aspect ratio */
+    max-height: 400px; /* Prevents exceeding 400px */
+    height: auto;      /* Keeps proper proportions */
+    object-fit: cover; /* Ensures images fill the container nicely */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.store-container {
+    padding: 20px;
+}
+
+.store-container h1 {
+    text-align: center;
+}
+
+#storeProductGrid {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of products */
+    gap: 20px; /* Space between products */
+}
+
+.product-card {
+    width: calc(25% - 20px); /* Set width to 25% of the container minus gap for four products */
+    height: 300px; /* Set a fixed height for uniformity */
+}
+
+/* Additional styling for responsive design */
+@media (max-width: 800px) {
+    .product-card {
+        width: calc(50% - 20px); /* 2 products per row on smaller screens */
+        height: 250px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%; /* 1 product per row on very small screens */
+        height: 200px; /* Adjust height for very small screens */
+    }
+}
+
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+.card h3 {
+    margin: 10px 0;
+}
+.button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.button:hover {
+    background-color: #0056b3;
+}
+/* Trial Status Styling */
+.trial-status {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 60px; /* Increased height to fit button comfortably */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    min-width: 250px;
+    padding-right: 80px; /* Space for the button and close icon */
+}
+
+/* Show Ad */
+.trial-status.show {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Close Button */
+#close-trial-status {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    margin-top: -10px;
+    cursor: pointer;
+    z-index: 1100; /* Ensure it's on top of the content */
+}
+
+#close-trial-status:hover {
+    color: blue;
+}
+
+/* Style for the Subscribe Button */
+.subscribe-btn {
+    background-color: #ffffff; /* White background for a clean look */
+    color: #007bff; /* Blue text color for contrast */
+    border: 1px solid #007bff; /* Border to match the background */
+    padding: 6px 12px; /* Adjust padding for a balanced button size */
+    font-size: 14px; /* Moderate font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+    position: absolute; /* Position it inside the trial status */
+    bottom: 8px; /* Align the button at the bottom of the status container */
+    right: 15px; /* Adjust right margin for spacing */
+}
+
+/* Hover Effects */
+.subscribe-btn:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text on hover */
+}
+
+.subscribe-btn:focus {
+    outline: none; /* Remove focus outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow on focus */
+}
+
+/* Ensure full height for body and html */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Main content */
+main {
+    flex-grow: 1;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 50px; /* Adjust the height to fit the footer content */
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+}
+
+/* Wrapper to ensure the footer stays at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Product card styling */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure content is spaced vertically */
+    width: 250px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    cursor: pointer;
+    height: 350px; /* Fixed height for better layout control */
+}
+
+.product-card.selected {
+    border: 2px solid #2980b9;
+    background-color: #e8f4fb;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensures buttons stay at the bottom */
+    height: 100%; /* Makes sure all cards have the same height */
+    padding: 10px;
+}
+
+.product-card img {
+    max-width: 100%;
+    max-height: 400px; /* Prevents images from getting too large */
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents the image from shrinking */
+}
+
+.product-details {
+    flex-grow: 1; /* Pushes the buttons to the bottom */
+    text-align: center;
+}
+
+
+.product-details h3 {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.product-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Button group positioning */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    margin-top: -39px; /* Forces it to stay at the bottom */
+}
+
+.button-group button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #3498db;
+}
+
+/* Top Buttons Section */
+.top-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Bottom Buttons Section */
+.bottom-buttons {
+    display: flex;
+    justify-content: center; /* Center bottom buttons */
+    margin-top: 10px;
+}
+
+/* Delete button for selected products */
+.delete-button {
+    display: none;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    right: 20px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Shipping location toggle */
+.shipping-container {
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.shipping-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.shipping-location-options {
+    display: none;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+.arrow {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.arrow.down {
+    transform: rotate(0deg);
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+/* Loading overlay style */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0056b3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    animation-delay: -1s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+.verify-email {
+    display: none;
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #d8000c;
+    margin: 10px;
+    border-radius: 5px;
+}

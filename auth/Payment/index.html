@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="../css/auth2.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+        }
+
+        .payment-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .selected-plan {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .plan-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 30px;
+        }
+
+        .pay-button {
+            padding: 14px 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .pay-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .pay-button:active {
+            background-color: #004085;
+            transform: translateY(0);
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: #dc3545;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="selected-plan" id="selectedPlan">Loading...</div>
+        <div class="plan-price" id="planPrice"></div>
+
+        <button class="pay-button" id="proceedPayment">Proceed to Payment</button>
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userEmail = localStorage.getItem("userEmail");
+
+            fetch(`http://localhost:5000/subscription/selected/${userEmail}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("selectedPlan").textContent = `Selected Plan: ${data.plan}`;
+                        document.getElementById("planPrice").textContent = `$${data.plan === "Basic Plan" ? "9.99" : data.plan === "Pro Plan" ? "19.99" : "49.99"}/month`;
+                    } else {
+                        document.getElementById("selectedPlan").textContent = "No plan selected.";
+                        document.getElementById("errorMessage").textContent = "Please select a subscription plan first.";
+                        document.getElementById("errorMessage").style.display = "block";
+                        document.getElementById("proceedPayment").style.display = "none";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching selected plan:", error);
+                    document.getElementById("selectedPlan").textContent = "Error loading plan.";
+                });
+        });
+
+        document.getElementById("proceedPayment").addEventListener("click", () => {
+            alert("Redirecting to payment gateway...");
+            window.location.href = "../Checkout/index.html"; // Replace with actual payment page
+        });
+    </script>
+</body>
+</html>

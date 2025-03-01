@@ -1,0 +1,388 @@
+/* Resetting default styles */ 
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Store Header with Close Button and Arrow */
+.store-header {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+}
+
+.close-btn1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-top: -24px;
+    margin-left: -20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-btn1:hover {
+    color: #0056b3;
+}
+
+/* Container for store content */
+.store-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.store-container:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+}
+
+/* Search bar */
+.search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 20px;
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    color: #555;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    font-weight: 300;
+}
+
+.search-bar:focus {
+    border-color: #0056b3;
+    background-color: #fff;
+}
+
+/* Product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+/* Individual product card styling */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Product image styling */
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Product details section */
+.product-card .product-details {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.product-card .product-details h3 {
+    font-size: 22px;
+    color: #222;
+    margin: 15px 0;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.product-card .product-details p {
+    color: #666;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+/* Toggle Shop Button */
+.toggle-shop-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Default: Blue */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+/* Hover & Active State */
+.toggle-shop-btn:hover {
+    background-color: #0056b3; /* Darker Blue */
+    transform: scale(1.05);
+}
+
+.toggle-shop-btn:active {
+    transform: scale(0.98);
+}
+
+/* Styling for 'Remove from Shop' */
+.toggle-shop-btn.remove {
+    background-color: #dc3545; /* Red */
+}
+
+.toggle-shop-btn.remove:hover {
+    background-color: #c82333; /* Darker Red */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .toggle-shop-btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-shop-btn {
+        font-size: 11px;
+        padding: 6px;
+    }
+}
+
+
+/* Modal styling for product info */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    width: 70%;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* Modal header */
+.modal-content h3 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Modal Close Button */
+.close-btn {
+    position: absolute;
+    top: -3px;
+    right: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    padding: 10px;
+}
+
+.close-btn:hover {
+    color: blue;
+}
+
+
+/* Logout button */
+button {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .search-bar {
+        max-width: 90%;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-bar {
+        max-width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+/* Loading overlay style */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #0056b3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    margin: auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+    animation-delay: -1s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+}

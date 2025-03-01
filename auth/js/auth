@@ -1,0 +1,42 @@
+Definition of Software
+Software is a collection of programs, data, and instructions that tell a computer how to perform specific tasks. Unlike hardware, which refers to the physical components of a computer, software is intangible and consists of code that runs on the hardware to accomplish various functions.
+
+System Software
+System software is a type of software designed to manage and control the computer hardware and provide a platform for running application software. It acts as an intermediary between the user and the computer hardware, ensuring smooth and efficient operation.
+
+Functions of System Software
+System software performs several critical functions, including:
+
+Operating System Management
+
+Provides a user interface (e.g., Windows, macOS, Linux).
+Manages system resources like CPU, memory, and storage.
+Controls input/output operations.
+File Management
+
+Organizes and stores data efficiently.
+Provides access control and security for files.
+Device Management
+
+Facilitates communication between hardware and software.
+Uses drivers to ensure hardware components function correctly.
+Process and Task Management
+
+Manages running applications and system processes.
+Allocates resources and schedules tasks efficiently.
+Security and System Protection
+
+Implements user authentication and access control.
+Protects against viruses and malware.
+Networking and Communication
+
+Manages network connections and internet access.
+Enables data sharing between devices.
+Utility Programs
+
+Includes tools for system maintenance, such as disk cleanup and backup utilities.
+Examples of System Software
+Operating Systems: Windows, Linux, macOS
+Utility Software: Antivirus programs, disk defragmenters
+Firmware: Embedded software in devices like routers and smart appliances
+System software is essential for the operation of any computing device, as it ensures that both the hardware and application software function properly.

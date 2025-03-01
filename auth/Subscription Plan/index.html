@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Subscription Plan</title>
+    <link rel="stylesheet" href="../css/auth2.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="subscription-header">
+            Choose Your Subscription Plan
+        </div>
+        <div class="plans" id="plans-container">
+            <!-- Plans will be loaded dynamically here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch("http://localhost:5000/subscription/plans")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const plansContainer = document.getElementById("plans-container");
+                        plansContainer.innerHTML = ""; // Clear existing plans
+
+                        data.plans.forEach(plan => {
+                            const planCard = `
+                                <div class="plan-card">
+                                    <div class="plan-title">${plan.name}</div>
+                                    <div class="plan-price">$${plan.price}/month</div>
+                                    <div class="plan-description">
+                                        ${plan.name === "Basic Plan" ? "Ideal for individuals who need basic features and functionalities." :
+                                          plan.name === "Pro Plan" ? "Perfect for small businesses and startups with advanced features." :
+                                          "For large businesses needing premium features and priority support."}
+                                    </div>
+                                    <button class="choose-plan-button" onclick="choosePlan(${plan.id})">Choose Plan</button>
+                                </div>
+                            `;
+                            plansContainer.innerHTML += planCard;
+                        });
+                    }
+                })
+                .catch(error => console.error("Error fetching plans:", error));
+        });
+
+        function choosePlan(planId) {
+            const userEmail = localStorage.getItem("userEmail"); // Ensure user email is stored
+
+            fetch("http://localhost:5000/subscription/choose", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: userEmail, planId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    window.location.href = "../Payment/index.html"; // Redirect after successful selection
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error("Error choosing plan:", error));
+        }
+    </script>
+</body>
+</html>

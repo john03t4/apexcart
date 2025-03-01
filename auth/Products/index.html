@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Products</title>
+    <link rel="stylesheet" href="../css/auth1.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ApexCart</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-target="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-target="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-target="orders">Orders</a></li>
+                    <li><a href="#" class="nav-link" data-target="customers">Customers</a></li>
+                    <li><a href="#" class="nav-link" data-target="analysis">Analysis</a></li>
+                    <li><a href="#" class="nav-link" data-target="settings">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="main-content">
+            <header class="top-bar">
+                <h1>Products</h1>
+                <a href="../Store/index.html"><button class="button">Manage Store</button></a>
+                <button id="toggleAddProductBtn" onclick="showAddProductForm()" class="add-product-btn">Add Product</button>
+            </header>
+
+            <!-- Add Product Form Section -->
+            <section id="addProductForm" class="add-product-form" style="display: none;">
+                <h2>Add a New Product</h2>
+                <form id="productForm">
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" required>
+
+                    <label for="productPrice">Price:</label>
+                    <input type="text" id="productPrice" required>
+
+                    <label for="productImage">Product Image URL:</label>
+                    <input type="text" id="productImage" placeholder="Enter image URL" required>
+
+                    <label for="productDescription">Description:</label>
+                    <textarea id="productDescription" placeholder="Enter product description" required></textarea>
+
+                    <button type="submit">Add Product</button>
+                </form>
+            </section>
+
+            <button class="delete-button" id="deleteSelectedBtn" onclick="deleteSelectedProducts()" style="display: none;">Delete Selected</button>
+            
+            <section class="product-grid" id="productGrid"></section>
+        </div>
+
+        <!-- Trial Status Message -->
+        <div id="trial-status" class="trial-status">
+            <p>Your trial is active! Upgrade now to unlock all features.</p>
+            <button id="close-trial-status" class="close-btn">✖</button>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="../js/auth6.js"></script>
+    <script src="../js/auth5.js"></script>
+</body>
+</html>

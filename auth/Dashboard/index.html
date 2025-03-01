@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/auth1.css">
+    <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Custom Alert -->
+    <div id="alert"></div>
+    <!-- Verify Email Notification -->
+<div id="verify-email-section" class="verify-email">
+    <p>Your email is not verified. Please verify your email to access all features.</p>
+    <button id="resend-verification">Resend Verification Email</button>
+</div>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>ApexCart</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link" data-target="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-target="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-target="orders">Orders</a></li>
+                    <li><a href="#" class="nav-link" data-target="customers">Customers</a></li>
+                    <li><a href="#" class="nav-link" data-target="analysis">Analysis</a></li>
+                    <li><a href="#" class="nav-link" data-target="settings">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <header class="top-bar">
+                <div class="welcome-message">
+                    <h1>Welcome, Store Owner!</h1>
+                </div>
+                <div class="top-bar-actions">
+                    <a href="../Products/index.html"><button class="button">Manage Products</button></a>
+                    <a href="../Store/index.html"><button class="button">Manage Store</button></a>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <section class="dashboard-cards" id="dashboard-cards">
+                <div class="card">
+                    <h3>Products</h3>
+                    <p>Manage your products.</p>
+                    <a href="../Products/index.html" class="button">Manage Products</a>
+                </div>
+                <div class="card">
+                    <h3>Orders</h3>
+                    <p>View recent orders.</p>
+                    <a href="../Orders/index.html" class="button">View Orders</a>
+                </div>
+                <div class="card">
+                    <h3>Customers</h3>
+                    <p>Manage your customers.</p>
+                    <a href="../Customers/index.html" class="button">View Customers</a>
+                </div>
+                <div class="card">
+                    <h3>Analysis</h3>
+                    <p>See sales performance.</p>
+                    <a href="../Analysis/index.html" class="button">View Analysis</a>
+                </div>
+            </section>
+
+            <!-- Trial Status Message -->
+            <div id="trial-status" class="trial-status">
+                <p>Your trial is active! Upgrade now to unlock all features.</p>
+                <button id="close-trial-status" class="close-btn">✖</button>
+            </div>
+        </div> 
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ApexCart. All rights reserved.</p>
+    </footer>
+
+    <!-- External Scripts -->
+    <script src="../js/auth4.js"></script>
+    <script src="../js/auth6.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="../css/auth7.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Email Verification</h2>
+        <p id="status-message">Verifying your email, please wait...</p>
+        <button id="resend-btn" class="resend-btn">Resend Verification Email</button>
+        <p><a href="../Login/index.html">Back to Login</a></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const userEmail = localStorage.getItem("userEmail");
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get("token");
+            const statusMessage = document.getElementById("status-message");
+            const resendBtn = document.getElementById("resend-btn");
+
+            if (!userEmail) {
+                statusMessage.innerText = "❌ User not found. Redirecting...";
+                setTimeout(() => window.location.href = "../Login/index.html", 3000);
+                return;
+            }
+
+            // ✅ If the user clicked the verification link, verify email
+            if (token) {
+                try {
+                    const response = await fetch(`http://localhost:5000/verify-email?token=${token}`);
+                    const data = await response.json();
+
+                    if (data.success) {
+                        statusMessage.innerText = "✅ Email Verified Successfully! Redirecting...";
+                        setTimeout(() => {
+                            window.location.href = "../Dashboard/index.html";
+                        }, 3000);
+                    } else {
+                        statusMessage.innerText = `❌ ${data.message}`;
+                    }
+                } catch (error) {
+                    console.error("Verification request error:", error);
+                    statusMessage.innerText = "❌ Server error. Please try again later.";
+                }
+                return;
+            }
+
+            resendBtn.addEventListener("click", async function () {
+                resendBtn.disabled = true;
+                statusMessage.innerText = "📨 Resending verification email...";
+
+                try {
+                    const response = await fetch("http://localhost:5000/send-verification-email", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ email: userEmail }),
+                    });
+
+                    const data = await response.json();
+                    statusMessage.innerText = data.message;
+
+                } catch (error) {
+                    console.error("Error resending email:", error);
+                    statusMessage.innerText = "❌ Failed to resend verification email.";
+                }
+
+                setTimeout(() => {
+                    resendBtn.disabled = false;
+                }, 10000);
+            });
+        });
+    </script>
+</body>
+</html>

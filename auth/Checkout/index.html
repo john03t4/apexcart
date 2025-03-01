@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="../css/auth2.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .checkout-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .checkout-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .plan-summary {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 22px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            font-size: 16px;
+            color: #dc3545;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-title">Secure Checkout</div>
+        <div class="plan-summary" id="selectedPlan">Loading...</div>
+        <div class="plan-price" id="planPrice"></div>
+
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-group">
+                <label for="expiryDate">Expiry Date</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="123" required>
+            </div>
+
+            <button type="submit" class="checkout-button">Complete Purchase</button>
+        </form>
+
+        <div class="error-message" id="errorMessage">Error processing payment. Please try again.</div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userEmail = localStorage.getItem("userEmail");
+
+            // Fetch the selected plan and set the plan details
+            fetch(`http://localhost:5000/subscription/selected/${userEmail}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById("selectedPlan").textContent = `Plan: ${data.plan}`;
+                        document.getElementById("planPrice").textContent = `$${data.plan === "Basic Plan" ? "9.99" : data.plan === "Pro Plan" ? "19.99" : "49.99"}/month`;
+                    } else {
+                        document.getElementById("selectedPlan").textContent = "No plan selected.";
+                        document.getElementById("errorMessage").textContent = "Please select a subscription plan first.";
+                        document.getElementById("errorMessage").style.display = "block";
+                        document.querySelector(".checkout-button").style.display = "none";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching selected plan:", error);
+                    document.getElementById("selectedPlan").textContent = "Error loading plan.";
+                });
+        });
+
+        document.getElementById("checkoutForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const callbackUrl = "https://yourwebsite.com/payment-success"; // Define callback URL
+            const returnUrl = "https://yourwebsite.com/thank-you"; // Define return URL
+            const amountUSD = 100; // Example amount, replace as necessary
+            const receiverAccount = "1234567890"; // Example receiver account number
+
+            const paymentData = {
+                email: localStorage.getItem("userEmail"),
+                amountUSD,
+                receiverAccount,
+                callbackUrl,
+                returnUrl
+            };
+
+            // Send payment request to backend
+            fetch("http://localhost:5000/create-payment", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(paymentData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = data.checkoutUrl; // Redirect to Opay checkout URL
+                } else {
+                    document.getElementById("errorMessage").style.display = "block";
+                }
+            })
+            .catch(error => {
+                console.error("Error processing payment:", error);
+                document.getElementById("errorMessage").style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px; /* Adjust font size to make content smaller */
+    text-align: left; /* Align text to the left */
+    zoom: 1; /* Zoom out the entire body */
+}
+
+/* 🔹 Category Navigation Bar */
+.category-nav {
+    background: linear-gradient(135deg, #0052cc, #007bff);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.category-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+.category-nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffeb3b;
+}
+
+/* 🔹 Shop Container */
+.shop-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    text-align: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.shop-container:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    color: #0052cc;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 🔹 Product List */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+    gap: 30px;
+    padding: 25px 0;
+}
+
+
+/* 🔹 Product Card */
+.product-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    zoom: 0.9;
+}
+
+.product-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 Product Image */
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 25px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-item:hover .product-image {
+    transform: scale(1.07);
+}
+
+/* 🔹 Product Details */
+.product-details {
+    flex: 1;
+    text-align: left;
+}
+
+.product-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0052cc;
+    margin-bottom: 6px;
+    transition: color 0.3s ease-in-out;
+}
+
+.product-item:hover .product-title {
+    color: #ff5722;
+}
+
+.product-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 12px;
+}
+
+/* 🔹 Buy Now Button */
+.buy-now {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: white;
+    padding: 12px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.buy-now:hover {
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    transform: scale(1.05);
+}
+
+/* 🔹 Footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 1024px) {
+    .shop-container {
+        margin: 30px;
+        padding: 25px;
+    }
+
+    .product-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 14px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .product-details {
+        text-align: center;
+    }
+
+    .buy-now {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .product-item {
+        padding: 18px;
+    }
+
+    .product-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .buy-now {
+        width: 90%;
+        padding: 12px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-container {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .product-item {
+        padding: 16px;
+    }
+
+    .product-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .buy-now {
+        width: 100%;
+        padding: 12px 16px;
+    }
+}

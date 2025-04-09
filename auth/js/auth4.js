@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     try {
         // Fetch user info from the server
-        const response = await fetch(`http://localhost:5000/user/${userEmail}`);
+        const response = await fetch(`https://server-tigx.onrender.com/user/${userEmail}`);
         if (!response.ok) {
             throw new Error("User not found");
         }
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (logoutBtn) {
         logoutBtn.addEventListener("click", async function () {
             try {
-                const logoutResponse = await fetch("http://localhost:5000/logout", {
+                const logoutResponse = await fetch("https://server-tigx.onrender.com/logout", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

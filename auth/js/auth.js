@@ -64,7 +64,7 @@ if (loginForm) {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/login', {
+            const response = await fetch('https://server-tigx.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ if (forgotPasswordForm) {
         loadingOverlay.style.display = 'block';
 
         try {
-            const response = await fetch('http://localhost:5000/forgot-password', {
+            const response = await fetch('https://server-tigx.onrender.com/forgot-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),
@@ -148,7 +148,7 @@ if (tokenForm) {
         loadingOverlay.style.display = 'block';
 
         try {
-            const response = await fetch('http://localhost:5000/verify-token', {
+            const response = await fetch('https://server-tigx.onrender.com/verify-token', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, token }),
@@ -195,7 +195,7 @@ if (resetPasswordForm) {
         loadingOverlay.style.display = 'block';
 
         try {
-            const response = await fetch('http://localhost:5000/reset-password', {
+            const response = await fetch('https://server-tigx.onrender.com/reset-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, token, newPassword }),

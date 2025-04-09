@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // ✅ Always fetch email verification status from the database
     try {
-        const response = await fetch(`http://localhost:5000/user/${userEmail}`);
+        const response = await fetch(`https://server-tigx.onrender.com/user/${userEmail}`);
         const data = await response.json();
 
         if (!data || !data.emailVerified) {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (!userEmail) return;
 
         try {
-            const response = await fetch(`http://localhost:5000/check-trial-status/${userEmail}`);
+            const response = await fetch(`https://server-tigx.onrender.com/check-trial-status/${userEmail}`);
             const data = await response.json();
 
             if (data.trialExpired) {

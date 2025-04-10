@@ -65,7 +65,7 @@ if (registerForm) {
         if (loadingOverlay) loadingOverlay.classList.add('active');
 
         try {
-            const response = await fetch('https://server-tigx.onrender.com/register', {
+            const response = await fetch('https://server-6chz.onrender.com/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ fullName, email, password }),
@@ -111,7 +111,7 @@ if (loginForm) {
         if (loadingOverlay) loadingOverlay.classList.add('active');
 
         try {
-            const response = await fetch('https://server-tigx.onrender.com/login', {
+            const response = await fetch('https://server-6chz.onrender.com/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),

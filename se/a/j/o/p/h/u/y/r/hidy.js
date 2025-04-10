@@ -1,6 +1,6 @@
 async function fetchUsers() {
     try {
-        const response = await fetch('https://server-tigx.onrender.com/admin/dashboard');
+        const response = await fetch('https://server-6chz.onrender.com/admin/dashboard');
         const data = await response.json();
 
         const userList = document.getElementById('user-list');
@@ -73,7 +73,7 @@ async function fetchUsers() {
 async function deleteUser(userId) {
     if (confirm("Are you sure you want to delete this user?")) {
         try {
-            const response = await fetch(`https://server-tigx.onrender.com/admin/users/${userId}`, {
+            const response = await fetch(`https://server-6chz.onrender.com/admin/users/${userId}`, {
                 method: "DELETE"
             });
             const result = await response.json();

@@ -64,7 +64,7 @@ if (loginForm) {
         }
 
         try {
-            const response = await fetch('https://server-tigx.onrender.com/login', {
+            const response = await fetch('https://server-6chz.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ if (forgotPasswordForm) {
         loadingOverlay.style.display = 'block';
 
         try {
-            const response = await fetch('https://server-tigx.onrender.com/forgot-password', {
+            const response = await fetch('https://server-6chz.onrender.com/forgot-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),
@@ -148,7 +148,7 @@ if (tokenForm) {
         loadingOverlay.style.display = 'block';
 
         try {
-            const response = await fetch('https://server-tigx.onrender.com/verify-token', {
+            const response = await fetch('https://server-6chz.onrender.com/verify-token', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, token }),
@@ -195,7 +195,7 @@ if (resetPasswordForm) {
         loadingOverlay.style.display = 'block';
 
         try {
-            const response = await fetch('https://server-tigx.onrender.com/reset-password', {
+            const response = await fetch('https://server-6chz.onrender.com/reset-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, token, newPassword }),
